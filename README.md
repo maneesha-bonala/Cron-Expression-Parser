@@ -1,26 +1,34 @@
 # Cron Expression Parser
 
-## Implementation
-
-Each field is parsed individually by maintaining separate classes for each field in cron expression.
-
-All of these classes extends base class `FieldParser`.
-
-For each char type special validations checks are performed.
 
 
+The script was developed in java and maven was used for building and unit testing.
+The decision to use these tools was taken given the popularity of the tools in java world. 
+only dependency is junit. 
 
-## How to Run
 
-Install [`maven 3.x`](http://maven.apache.org/install.html) and [`JDK 1.8`]
+### Building the script
+N.b. You will need at least Apache Maven 3.x and JDK 1.8 to build and run the script. 
 
-To run unit test cases execute from the project root folder - 
- ```
- mvn clean test
- ```
+From the project root, do `mvn clean install` :
+```bash
+$ mvn clean install
+..
+[INFO] BUILD SUCCESS
+..
+```
 
-To compile and create jar file execute from the project root folder - 
- ```
- mvn clean package
- ```
+### Running the script
+Download v1.0 release from here https://github.com/maneesha-bonala/Cron-Expression-Parser/releases/tag/cronexpressionparser and execute according to specs:
+
+```bash
+$ java -jar deliveroo-1.0-SNAPSHOT.jar "0 0 1,2,3,15 * 1-5 /usr/bin/find"
+  minute        0
+  hour          0
+  day of month  1 2 3 15
+  month         1 2 3 4 5 6 7 8 9 10 11 12
+  day of week   1 2 3 4 5
+  command       /usr/bin/find
+```
+
 
